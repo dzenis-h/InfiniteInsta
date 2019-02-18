@@ -1,0 +1,4 @@
+node_modules
+client/node_modules
+config/server.js
+package-lock
