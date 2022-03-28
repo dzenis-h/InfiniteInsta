@@ -1,22 +1,31 @@
-global.fetch = require('node-fetch');
-const config = require('universal-config');
-const Unsplash = require('unsplash-js').default;
-const toJson = require('unsplash-js').toJson;
-const express = require('express');
+global.fetch = require("node-fetch");
+const config = require("universal-config");
+const Unsplash = require("unsplash-js").default;
+const toJson = require("unsplash-js").toJson;
+const express = require("express");
+const keys = require("./config/server");
 
 const unsplash = new Unsplash({
-  applicationId: config.get('APPLICATION_ID'),
-  secret: config.get('SECRET'),
-  callbackUrl: config.get('CALLBACK_URL')
+  applicationId: keys.APPLICATION_ID,
+  secret: keys.SECRET,
+  callbackUrl: keys.CALLBACK_URL,
 });
+
+if (process.env.NODE_ENV === "production") {
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+} else {
+  path.join("client", "build", "index.html");
+}
 
 const app = express();
 
-app.get('/api/photos', (req, res) => {
+app.get("/api/photos", (req, res) => {
   unsplash.photos
     .listPhotos(req.query.start, req.query.count)
     .then(toJson)
-    .then(json => res.json(json));
+    .then((json) => res.json(json));
 });
 
 const PORT = process.env.PORT || 5000;
