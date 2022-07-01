@@ -12,7 +12,7 @@ Also make sure to do the following:
 #### Go into config/server and add your own API keys for Unsplash
 
 > # Run both SERVER & CLIENT with a single sommand:
-###npm run dev
+### npm run dev
 
 > # Build for production
-###npm run build
+### npm run build
