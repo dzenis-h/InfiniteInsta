@@ -11,7 +11,7 @@
   },
   "keywords": ["unsplash", "coding-challange", "javascript", "nodejs", "express", "react"],
   "author": "Dzneis H.",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "babel-register": "^6.26.0",
     "concurrently": "^4.1.0",
