@@ -9,8 +9,8 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["unsplash", "coding-challange", "javascript", "nodejs", "express", "react"],
+  "author": "Dzneis H.",
   "license": "ISC",
   "dependencies": {
     "babel-register": "^6.26.0",
